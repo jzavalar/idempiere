@@ -4,7 +4,7 @@
 
 En este repositorio iré creando los materiales necesarios para revelar los detalles técnicos que permitan a un usuario común con conocimientos básicos de Linux, instalar y usar [iDempiere](https://github.com/idempiere/idempiere), que es, en mi opinión, el mejor sistema empresarial disponible para empresas al menor costo de adquisición.
 
-### InstalaR iDempiere en Fedora 36
+### Instalar iDempiere en Fedora 36
 
 1. Creación de la bases de datos
 
