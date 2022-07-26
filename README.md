@@ -13,35 +13,35 @@ En este repositorio iré creando los materiales necesarios para revelar los deta
 
 2. Instalar PostgreSQL 
 
-Instalar el repositorio RPM:
+Instalar el repositorio RPM:  
 ```$ sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/F-36-x86_64/pgdg-fedora-repo-latest.noarch.rpm```
 
-Instalar postgresql:
+Instalar postgresql:  
 ```$ sudo dnf install -y postgresql14-server```
 
-Inicializar la base de datos y habilita la inicialización automática:
+Inicializar la base de datos y habilita la inicialización automática:  
 ```$ sudo /usr/pgsql-14/bin/postgresql-14-setup initdb```
 
-Habilitar Postgresql como servicio:
+Habilitar Postgresql como servicio:  
 ```$ sudo systemctl enable postgresql-14```
 
-Iniciar el servicio:
+Iniciar el servicio:  
 ```$ sudo systemctl start postgresql-14```
 
-Verificar el servicio:
+Verificar el servicio:  
 ```$ sudo systemctl status postgresql-14```
 
-Opcionalmente, puede detener o reiniciar el servicio, de ser necesario:
-```$ sudo systemctl stop postgresql-14```
-```$ sudo systemctl restart postgresql-14```
+Opcionalmente, puede detener o reiniciar el servicio, de ser necesario:  
+```$ sudo systemctl stop postgresql-14```  
+```$ sudo systemctl restart postgresql-14```  
 
-Acceder con el usuario administrador de PostgreSQL (postgres):
+Acceder con el usuario administrador de PostgreSQL (postgres):  
 ```$ sudo su - postgres```
 
-Definir la contraseña del usuario postgres:
+Definir la contraseña del usuario postgres:  
 ```psql -c "alter user postgres with password 'contraseña'"```
 
-Abandonar el entorno de psql del usuario postgres: 
+Abandonar el entorno de psql del usuario postgres:   
 ```exit```
 
 
