@@ -8,7 +8,7 @@ En este repositorio iré creando los materiales necesarios para revelar los deta
 
 ### Prerrequisitos
 
-1. Actualizar el sistema
+1. Actualizar el sistema    
 ```$ sudo dnf upgrade --refresh``` 
 
 2. Instalar PostgreSQL 
