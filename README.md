@@ -1,6 +1,6 @@
-# idempiere
 ## iDempiere para dummies
-### Cómo instalar y usar iDempiere en Fedora 36 y no morir en el intento.
+
+### Cómo instalar y usar iDempiere en Fedora 36 y no morir en el intento
 
 En este repositorio iré creando los materiales necesarios para revelar los detalles técnicos que permitan a un usuario común con conocimientos básicos de Linux, instalar y usar [iDempiere](https://github.com/idempiere/idempiere), que es, en mi opinión, el mejor sistema empresarial disponible para empresas al menor costo de adquisición.
 
