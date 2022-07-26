@@ -32,8 +32,10 @@ En este repositorio iré creando los materiales necesarios para revelar los deta
    ```$ sudo systemctl status postgresql-14```  
    
    Opcionalmente, puede detener o reiniciar el servicio, de ser necesario:  
-   ```$ sudo systemctl stop postgresql-14```  
-   ```$ sudo systemctl restart postgresql-14```  
+   ```
+   $ sudo systemctl stop postgresql-14  
+   $ sudo systemctl restart postgresql-14
+   ```  
    
    Acceder con el usuario administrador de PostgreSQL (postgres):  
    ```$ sudo su - postgres```  
@@ -59,12 +61,14 @@ En este repositorio iré creando los materiales necesarios para revelar los deta
    ```$ sudo vim /var/lib/pgsql/14/data/pg_hba.conf```  
    
    Cambiar la siguiente línea para que se acceda universalmente con contraseña:  
-   ```#host    all             all             all            peer```  
-   ```host    all             all             all            md5```
-   ``` ```  
-   ```# IPv4 local connections:```  
-   ```#host    all             all             127.0.0.1/32            scram-sha-256```  
-   ```host    all             all             0.0.0.0/0               md5```  
+   ```
+   #host    all             all             all            peer  
+   host    all             all             all            md5
+       
+   # IPv4 local connections:  
+   #host    all             all             127.0.0.1/32            scram-sha-256  
+   host    all             all             0.0.0.0/0               md5
+   ```  
    
    Localizar el  archivo postgresql.conf:  
    ```$ sudo find / -name postgresql.conf```  
@@ -73,17 +77,19 @@ En este repositorio iré creando los materiales necesarios para revelar los deta
    ```$ sudo vim /var/lib/pgsql/14/data/postgresql.conf```  
    
    Cambiar la siguiente línea para que se acceda universalmente desde cualquier dirección IP:  
-   ```#listen_addresses = 'localhost'         # what IP address(es) to listen on;```  
-   ```                                        # comma-separated list of addresses;```  
-   ```                                        # defaults to 'localhost'; use '*' for all```  
-   ```                                        # (change requires restart)```  
-   ```# @jzavalar:```  
-   ```listen_addresses = '*'          # what IP address(es) to listen on;```  
-   ``` ```  
-   ```#port = 5432                            # (change requires restart)```  
-   ``` ```  
-   ```# @jzavalar:```  
-   ```port = 5432                             # (change requires restart)```  
+   ```
+   #listen_addresses = 'localhost'         # what IP address(es) to listen on;  
+                                           # comma-separated list of addresses;  
+                                           # defaults to 'localhost'; use '*' for all  
+                                           # (change requires restart)  
+   # @jzavalar:  
+   listen_addresses = '*'          # what IP address(es) to listen on;  
+     
+   #port = 5432                            # (change requires restart)  
+     
+   # @jzavalar:  
+   port = 5432                             # (change requires restart)  
+   ```  
 
    Reiniciar postgresql:  
    ```$ sudo systemctl restart postgresql-14```  
@@ -110,8 +116,10 @@ En este repositorio iré creando los materiales necesarios para revelar los deta
    ```$ sudo vim /var/lib/pgsql/14/data/pg_hba.conf```  
 
    Cambiar de md5 a trust para las conexiones locales, para que se acceda sin contraseña y hacer el cambio:  
-   ```#host    all             all             all            md5```  
-   ```host    all             all             all            trust```
+   ```
+   #host    all             all             all            md5  
+   host    all             all             all            trust  
+   ```
 
    Reiniciar el servidor:  
    ```$ sudo systemctl restart postgresql```  
@@ -132,8 +140,10 @@ En este repositorio iré creando los materiales necesarios para revelar los deta
    ```$ sudo vim /var/lib/pgsql/14/data/pg_hba.conf```  
  
    Cambiar la línea:  
-   ```#host    all             all             all            trust```  
-   ```host    all             all             all            md5```  
+   ```
+   #host    all             all             all            trust  
+   host    all             all             all            md5  
+   ```
 
    Reiniciar el servidor:   
    ```$ sudo systemctl restart postgresql```  
@@ -170,25 +180,30 @@ En este repositorio iré creando los materiales necesarios para revelar los deta
    Identificar los paquetes instalados de Java:  
    ```$ sudo yum list installed "java*"```  
 
+   ```
    Installed Packages
    java-17-openjdk.x86_64                  1:17.0.3.0.7-2.fc36            @updates 
    java-17-openjdk-devel.x86_64            1:17.0.3.0.7-2.fc36            @updates 
    java-17-openjdk-headless.x86_64         1:17.0.3.0.7-2.fc36            @updates 
-   javapackages-filesystem.noarch          6.0.0-7.fc36                   @anaconda
+   javapackages-filesystem.noarch          6.0.0-7.fc36                   @anaconda  
+   ```
 
    Verificar la versión activa de Java:  
    ```$ java -version```  
 
    Si tiene instalado algún paquete Java 17, similar a esto:  
-
+   ```
    openjdk version "17.0.3" 2022-04-19  
    OpenJDK Runtime Environment 21.9 (build 17.0.3+7)  
    OpenJDK 64-Bit Server VM 21.9 (build 17.0.3+7, mixed mode, sharing)  
-
+   ```
+   
    Desinstalar Java 17:  
-   ```$ sudo dnf remove jre-17-openjdk```  
-   ```$ sudo dnf remove java-17-openjdk```  
-   ```$ sudo dnf remove java-17-openjdk-headless```  
+   ```
+   $ sudo dnf remove jre-17-openjdk  
+   $ sudo dnf remove java-17-openjdk  
+   $ sudo dnf remove java-17-openjdk-headless
+   ```  
 
    Instalar Java 11:  
    ```$ sudo dnf install java-11-openjdk java-11-openjdk-devel java-11-openjdk-headless```  
@@ -197,16 +212,18 @@ En este repositorio iré creando los materiales necesarios para revelar los deta
    ```$ sudo yum list installed "java*"```  
 
    Hasta que quede similar a esto:  
-
+   ```
    Installed Packages  
    java-11-openjdk.x86_64                  1:11.0.15.0.10-1.fc36          @updates  
    java-11-openjdk-devel.x86_64            1:11.0.15.0.10-1.fc36          @updates  
    java-11-openjdk-headless.x86_64         1:11.0.15.0.10-1.fc36          @updates  
    javapackages-filesystem.noarch          6.0.0-7.fc36                   @anaconda  
-
+   ```
    Comprobar los paquetes instalados y la versión de Java 11:  
-   ```$ sudo yum list installed "java*"```  
-   ```$ java -version```  
+   ```
+   $ sudo yum list installed "java*"  
+   $ java -version
+   ```  
 
    Identificar el JAVA_HOME para configurar la ruta de acceso para su correcta ejecución:  
    ```$ java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home'```  
@@ -215,12 +232,14 @@ En este repositorio iré creando los materiales necesarios para revelar los deta
    ```$ sudo vim /root/.bash_profile```  
 
    Insertar el siguiente texto:  
-   ```JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.15.0.10-1.fc36.x86_64```  
-   ```PATH=$PATH:$HOME/bin:$JAVA_HOME/bin```  
-   ``` ```  
-   ```export PATH```  
+   ```
+   JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.15.0.10-1.fc36.x86_64  
+   PATH=$PATH:$HOME/bin:$JAVA_HOME/bin  
+     
+   export PATH
+   ```  
 
-   Recargar las definiciones en _~/.bash_profile__ de root:  
+   Recargar las definiciones en __~/.bash_profile__ de root:  
    ```$ sudo source /root/.bash_profile```  
 
    Probar Java  
@@ -252,6 +271,7 @@ En este repositorio iré creando los materiales necesarios para revelar los deta
    ```sh setup-alt.sh```  
 
    *Parámetros:*  
+   ```
    Java:  
       Java Home: ```/usr/lib/jvm/java-11-openjdk-11.0.15.0.10-1.fc36.x86_64```  
 
@@ -272,8 +292,8 @@ En este repositorio iré creando los materiales necesarios para revelar los deta
        DB Admin Password: ```postgres```  
        Database User: ```adempiere```  
        Database Password: ```adempiere```  
-
-
+   ```
+`
 2. Importar la base de datos
 
    Como prerrequisito, después de instalar el servidor, se debe ejecutar el siquiente script, como usuario idempiere. Si no, debe cambiarse de usuario:  
